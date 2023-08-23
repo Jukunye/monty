@@ -15,7 +15,7 @@ void swap(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
 		free_list(*stack);
 		free_array(tokens);
-		exit(EXIT_SUCCESS);
+		exit(EXIT_FAILURE);
 	}
 
 	tos = pop_int(stack);
