@@ -1,6 +1,5 @@
 #ifndef _MONTY_
 #define _MONTY_
-#define _GNU_SOURCE
 
 /* Constants */
 #define SUCSS_OP		0
@@ -67,7 +66,6 @@ typedef struct instruction_s
 } instruction_t;
 
 extern stack_t *head;
-extern char **tokens;
 
 void check_args_num(int argn);
 FILE *open_file(char *filename);
@@ -80,17 +78,6 @@ void handle_error(int errno, char *opcode, unsigned int line, char *buff);
 void handle_cerror(int errno, char *opcode, unsigned int line);
 void handle_uerror(int errno, unsigned int line);
 void handle_more_uerror(int errno, unsigned int line);
-
-char *fileName(char *pathname);
-void read_file(char *pathname);
-int count_tokens(char *str);
-char **tokenize(char *line);
-void free_array(char **array);
-void operations(stack_t **stack, unsigned int line_number);
-int add_dnodeint(stack_t **stack, const int n);
-void free_list(stack_t *stack);
-int pop_int(stack_t **stack);
-
 void (*pick_func(char *s))(stack_t **, unsigned int);
 unsigned int count_stack(stack_t *stack);
 void push(stack_t **stack, unsigned int param);
