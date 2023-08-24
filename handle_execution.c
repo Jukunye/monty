@@ -19,7 +19,7 @@ int handle_execution(char *op_code, char *op_param, unsigned int line, int m)
 	else if (strcmp(op_code, "queue") == 0)
 		return (METH_QUEUE);
 
-	oprt = pick_func(op_code);
+	oprt = execute(op_code);
 	if (oprt)
 	{
 		if (strcmp(op_code, "push") == 0)
@@ -29,7 +29,7 @@ int handle_execution(char *op_code, char *op_param, unsigned int line, int m)
 				return (ERR_PUSH_USG);
 
 			if (m != 0 && m == METH_QUEUE)
-				oprt = pick_func("push_queue");
+				oprt = execute("push_queue");
 
 			oprt(&head, atoi(op_param));
 		}

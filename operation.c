@@ -22,6 +22,11 @@ void operations(stack_t **stack, unsigned int line_number)
 		{"sub", sub},
 		{"mul", mul},
 		{"mod", mod},
+		{"div", divide},
+		{"pstr", pstr},
+		{"pchar", pchar},
+		{"rotl", rotl},
+		{"rotr", rotr},
 		{NULL, NULL}
 	};
 

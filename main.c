@@ -1,6 +1,7 @@
 #include "monty.h"
 
 char **tokens = NULL;
+stack_t *head = NULL;
 
 /**
  * main - entry to the program
