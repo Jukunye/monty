@@ -8,7 +8,7 @@
 void push(stack_t **stack, unsigned int line_number)
 {
 	char *endptr;
-	int n = strtol(tokens[1], &endptr, 10);
+	int n = (int)strtol(tokens[1], &endptr, 10);
 
 	if (*endptr != '\0')
 	{
