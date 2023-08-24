@@ -1,5 +1,6 @@
 #include "monty.h"
 
+void read_file(char *pathname);
 char **tokens = NULL;
 stack_t *head = NULL;
 
