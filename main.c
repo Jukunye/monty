@@ -3,6 +3,7 @@
 void read_file(char *pathname);
 char **tokens = NULL;
 stack_t *head = NULL;
+int queue_flag = 0;
 
 /**
  * main - entry to the program

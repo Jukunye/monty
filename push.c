@@ -17,12 +17,25 @@ void push(stack_t **stack, unsigned int line_number)
 		free_list(*stack);
 		exit(EXIT_FAILURE);
 	}
-	if (add_dnodeint(stack, n))
+	if (!queue_flag)
 	{
-		fprintf(stderr, "Memory allocation: Failed\n");
-		free_array(tokens);
-		free_list(*stack);
-		exit(EXIT_FAILURE);
+		if (add_dnodeint(stack, n))
+		{
+			fprintf(stderr, "Memory allocation: Failed\n");
+			free_array(tokens);
+			free_list(*stack);
+			exit(EXIT_FAILURE);
+		}
+	}
+	else
+	{
+		if (add_dnodeint_end(stack, n))
+		{
+			fprintf(stderr, "Memory allocation: Failed\n");
+			free_array(tokens);
+			free_list(*stack);
+			exit(EXIT_FAILURE);
+		}
 	}
 }
 
@@ -55,5 +68,39 @@ int add_dnodeint(stack_t **stack, const int n)
 	new->next = temp;
 	temp->prev = new;
 	*stack = new;
+	return (0);
+}
+
+/**
+ * add_dnodeint_end - adds a new node at the end of list.
+ * @stack: pointer to list
+ * @n: data to add
+ *
+ * Return: (0) on success.
+ */
+int add_dnodeint_end(stack_t **stack, const int n)
+{
+	stack_t *new, *temp = *stack;
+
+	new = malloc(sizeof(stack_t));
+	if (new == NULL)
+		return (1);
+
+	new->n = n;
+	new->prev = NULL;
+	new->next = NULL;
+
+	if (*stack == NULL)
+	{
+		*stack = new;
+		return (0);
+	}
+
+	while (temp->next != NULL)
+		temp = temp->next;
+
+	temp->next = new;
+	new->prev = temp;
+
 	return (0);
 }

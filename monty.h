@@ -39,6 +39,7 @@
 #include <sys/types.h>
 
 extern char **tokens;
+extern int queue_flag;
 
 
 /**
@@ -113,6 +114,7 @@ void rotl(stack_t **stack, unsigned int line_number);
 void rotr(stack_t **stack, unsigned int line_number);
 
 int add_dnodeint(stack_t **stack, const int n);
+int add_dnodeint_end(stack_t **stack, const int n);
 void free_list(stack_t *stack);
 
 #endif /* MONTY_H */

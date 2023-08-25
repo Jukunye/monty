@@ -1,5 +1,6 @@
 #include "monty.h"
 
+void operations(stack_t **stack, unsigned int line_number);
 /**
  * operations - executes the appropriate operation based on the opcode
  * @stack: pointer to the stack
@@ -29,6 +30,17 @@ void operations(stack_t **stack, unsigned int line_number)
 		{"rotr", rotr},
 		{NULL, NULL}
 	};
+
+	if (strcmp(op, "stack") == 0)
+	{
+		queue_flag = 0;
+		return;
+	}
+	else if (strcmp(op, "queue") == 0)
+	{
+		queue_flag = 1;
+		return;
+	}
 
 	for (i = 0; operation[i].opcode != NULL; i++)
 	{
